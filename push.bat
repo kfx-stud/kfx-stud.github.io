@@ -16,11 +16,13 @@ git add .
 echo Создание коммита...
 git commit -m "%msg%"
 
+echo Подтягивание изменений с GitHub...
+git pull --rebase origin main
+
 echo Отправка на GitHub...
-git push
+git push origin main
 
 echo.
 echo Все изменения отправлены на GitHub!
-echo Сайт обновится через 30-60 секунд.
 echo.
 pause
