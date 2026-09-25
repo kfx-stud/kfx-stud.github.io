@@ -1,4 +1,23 @@
+# Секретные ключи и переменные окружения
 .env
+.env.*
+
+# Временная папка с исходниками фото и архивы
 incoming/
 *.7z
 *.zip
+*.tar.gz
+
+# Python кэш и виртуальные окружения
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+
+# Служебные файлы ОС и редакторов
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
