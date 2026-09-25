@@ -1,4 +1,180 @@
-<div class="container">
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГазМяс Сквад</title>
+    <style>
+        :root {
+            --bg-color: #0b0d13;
+            --card-bg: rgba(22, 27, 38, 0.85);
+            --accent-blue: #00d2ff;
+            --accent-purple: #9d4edd;
+            --accent-red: #ff3366;
+            --text-main: #f0f4f8;
+            --text-muted: #8c9cb0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(157, 78, 221, 0.18) 0px, transparent 45%),
+                radial-gradient(at 100% 100%, rgba(0, 210, 255, 0.15) 0px, transparent 45%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 40px 16px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            font-weight: 900;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 210, 255, 0.45);
+            box-shadow: 0 12px 30px rgba(0, 210, 255, 0.2);
+        }
+
+        .img-wrapper {
+            width: 100%;
+            height: 330px;
+            overflow: hidden;
+            background-color: #12151e;
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+
+        .card:hover .img-wrapper img {
+            transform: scale(1.04);
+        }
+
+        .card-content {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .tag {
+            align-self: flex-start;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 3px 8px;
+            border-radius: 5px;
+            background: rgba(0, 210, 255, 0.12);
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        .tag.alt {
+            background: rgba(255, 51, 102, 0.12);
+            color: var(--accent-red);
+        }
+
+        .tag.purple {
+            background: rgba(157, 78, 221, 0.15);
+            color: var(--accent-purple);
+        }
+
+        .title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .caption {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        #modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.88);
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        #modal img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ГАЗМЯС СТИЛЬ</h1>
+        <p class="subtitle">Полный архив кадров, персон и мемов сквада</p>
+    </header>
+
+    <div class="container">
         <!-- friend1.jpg: Черно-белый капюшон -->
         <div class="card" onclick="openModal('images/friend1.jpg')">
             <div class="img-wrapper"><img src="images/friend1.jpg" alt="Незваный гость"></div>
@@ -89,9 +265,9 @@
             </div>
         </div>
 
-        <!-- friend10.jpg: У двери с табличкой -->
+        <!-- friend10.jpg: У двери с табличкой (палец открыт) -->
         <div class="card" onclick="openModal('images/friend10.jpg')">
-            <div class="img-wrapper">
+            <div class="img-wrapper" style="height: 360px;">
                 <img src="images/friend10.jpg" alt="Главный спикер" style="object-position: center bottom;">
             </div>
             <div class="card-content">
@@ -141,3 +317,25 @@
             </div>
         </div>
     </div>
+
+    <footer>
+        &copy; 2026 gasmyas.me – Официальная база сквада
+    </footer>
+
+    <!-- Модальное окно для полноразмерных фото -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="" alt="Full view">
+    </div>
+
+    <script>
+        function openModal(src) {
+            document.getElementById('modal-img').src = src;
+            document.getElementById('modal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
