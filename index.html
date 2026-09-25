@@ -2,9 +2,349 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>ГазМяс</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГазМяс Сквад</title>
+    <style>
+        :root {
+            --bg-color: #0b0d13;
+            --card-bg: rgba(22, 27, 38, 0.85);
+            --accent-blue: #00d2ff;
+            --accent-purple: #9d4edd;
+            --accent-red: #ff3366;
+            --text-main: #f0f4f8;
+            --text-muted: #8c9cb0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(157, 78, 221, 0.18) 0px, transparent 45%),
+                radial-gradient(at 100% 100%, rgba(0, 210, 255, 0.15) 0px, transparent 45%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 40px 16px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            font-weight: 900;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 210, 255, 0.45);
+            box-shadow: 0 12px 30px rgba(0, 210, 255, 0.2);
+        }
+
+        .img-wrapper {
+            width: 100%;
+            height: 330px;
+            overflow: hidden;
+            background-color: #12151e;
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+
+        .card:hover .img-wrapper img {
+            transform: scale(1.04);
+        }
+
+        .card-content {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .tag {
+            align-self: flex-start;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 3px 8px;
+            border-radius: 5px;
+            background: rgba(0, 210, 255, 0.12);
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        .tag.alt {
+            background: rgba(255, 51, 102, 0.12);
+            color: var(--accent-red);
+        }
+
+        .tag.purple {
+            background: rgba(157, 78, 221, 0.15);
+            color: var(--accent-purple);
+        }
+
+        .title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .caption {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Лайтбокс при клике */
+        #modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.88);
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        #modal img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
+        }
+    </style>
 </head>
 <body>
-    <h1>Сайт gasmyas.me работает!</h1>
+
+    <header>
+        <h1>ГАЗМЯС СТИЛЬ</h1>
+        <p class="subtitle">Полный архив легендарных кадров, персон и мемов сквада</p>
+    </header>
+
+    <div class="container">
+        <!-- 1 -->
+        <div class="card" onclick="openModal('friend1.jpg')">
+            <div class="img-wrapper"><img src="friend1.jpg" alt="Метро и капюшон"></div>
+            <div class="card-content">
+                <span class="tag">Подземка</span>
+                <div class="title">Конспирация</div>
+                <div class="caption">Максимальный уровень защиты лица в вагоне метро.</div>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="card" onclick="openModal('friend2.jpg')">
+            <div class="img-wrapper"><img src="friend2.jpg" alt="Селфи в очках"></div>
+            <div class="card-content">
+                <span class="tag">0.5x Mode</span>
+                <div class="title">Ночной дозор</div>
+                <div class="caption">Идеальный ракурс для оценки вечернего Петербурга.</div>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="card" onclick="openModal('friend3.jpg')">
+            <div class="img-wrapper"><img src="friend3.jpg" alt="Улыбка на улице"></div>
+            <div class="card-content">
+                <span class="tag purple">Вайб</span>
+                <div class="title">Широкая душа</div>
+                <div class="caption">Когда настроение зашкаливает независимо от времени суток.</div>
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="card" onclick="openModal('friend4.jpg')">
+            <div class="img-wrapper"><img src="friend4.jpg" alt="Серьезный взгляд"></div>
+            <div class="card-content">
+                <span class="tag">Фокус</span>
+                <div class="title">Задумался</div>
+                <div class="caption">Оценивает шансы на победу в следующей катке.</div>
+            </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="card" onclick="openModal('friend5.jpg')">
+            <div class="img-wrapper"><img src="friend5.jpg" alt="Селфи снизу"></div>
+            <div class="card-content">
+                <span class="tag">Стрит</span>
+                <div class="title">Фонари горят</div>
+                <div class="caption">Вечерняя атмосфера, фонари и легкий прищур.</div>
+            </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="card" onclick="openModal('friend6.jpg')">
+            <div class="img-wrapper"><img src="friend6.jpg" alt="У двери"></div>
+            <div class="card-content">
+                <span class="tag alt">Позирование</span>
+                <div class="title">Главный спикер</div>
+                <div class="caption">Фирменный жест уверенности в любой непонятной ситуации.</div>
+            </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="card" onclick="openModal('friend7.jpg')">
+            <div class="img-wrapper"><img src="friend7.jpg" alt="Телевизор"></div>
+            <div class="card-content">
+                <span class="tag">Классика ТВ</span>
+                <div class="title">На службе</div>
+                <div class="caption">Строго по уставу и под присмотром старшего состава.</div>
+            </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="card" onclick="openModal('friend8.jpg')">
+            <div class="img-wrapper"><img src="friend8.jpg" alt="Портрет сверху"></div>
+            <div class="card-content">
+                <span class="tag purple">Чилл</span>
+                <div class="title">Хитрый взгляд</div>
+                <div class="caption">Когда сервер уже запущен и ждет тиммейтов.</div>
+            </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="card" onclick="openModal('friend9.jpg')">
+            <div class="img-wrapper"><img src="friend9.jpg" alt="На полу"></div>
+            <div class="card-content">
+                <span class="tag alt">Аут</span>
+                <div class="title">Тактический сон</div>
+                <div class="caption">Маскировка под плинтус и кабель питания.</div>
+            </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="card" onclick="openModal('friend10.jpg')">
+            <div class="img-wrapper"><img src="friend10.jpg" alt="Кружок в платьях"></div>
+            <div class="card-content">
+                <span class="tag purple">Кутюр</span>
+                <div class="title">Фэшн показ</div>
+                <div class="caption">Высшая лига грации, стиля и позирования.</div>
+            </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="card" onclick="openModal('friend11.jpg')">
+            <div class="img-wrapper"><img src="friend11.jpg" alt="Дровник"></div>
+            <div class="card-content">
+                <span class="tag alt">Деревня</span>
+                <div class="title">Ночной драйв</div>
+                <div class="caption">Энергия бьет ключом прямо у поленницы.</div>
+            </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="card" onclick="openModal('friend12.jpg')">
+            <div class="img-wrapper"><img src="friend12.jpg" alt="Макро взгляд"></div>
+            <div class="card-content">
+                <span class="tag">0.5x Ultra</span>
+                <div class="title">Сканирование</div>
+                <div class="caption">Взгляд, способный пробить любой брандмауэр.</div>
+            </div>
+        </div>
+
+        <!-- 13 -->
+        <div class="card" onclick="openModal('friend13.jpg')">
+            <div class="img-wrapper"><img src="friend13.jpg" alt="Созвон"></div>
+            <div class="card-content">
+                <span class="tag">Дистанционка</span>
+                <div class="title">Участник 20</div>
+                <div class="caption">Пара идет по расписанию, винда требует активации.</div>
+            </div>
+        </div>
+
+        <!-- 14 -->
+        <div class="card" onclick="openModal('friend14.jpg')">
+            <div class="img-wrapper"><img src="friend14.jpg" alt="Кулибяка"></div>
+            <div class="card-content">
+                <span class="tag purple">Мем</span>
+                <div class="title">Кулибяка</div>
+                <div class="caption">Хранитель глубоководных серверов и протоколов.</div>
+            </div>
+        </div>
+
+        <!-- 15 -->
+        <div class="card" onclick="openModal('friend15.png')">
+            <div class="img-wrapper"><img src="friend15.png" alt="Аналог"></div>
+            <div class="card-content">
+                <span class="tag alt">Крипи</span>
+                <div class="title">Незваный гость</div>
+                <div class="caption">Смотрит прямо в душу тем, кто не закрыл порты.</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 gasmyas.me – Официальная база сквада
+    </footer>
+
+    <!-- Модальное окно для полноразмерных фото -->
+    <div id="modal" onclick="closeModal()">
+        <img id="modal-img" src="" alt="Full view">
+    </div>
+
+    <script>
+        function openModal(src) {
+            document.getElementById('modal-img').src = src;
+            document.getElementById('modal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+
 </body>
 </html>
