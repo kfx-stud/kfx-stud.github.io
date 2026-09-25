@@ -1,1 +1,1 @@
-# kfx-stud.github.io
+# [kfx-stud.github.io](https://site.gasmyas.me/)
