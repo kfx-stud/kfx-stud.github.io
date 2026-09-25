@@ -15,11 +15,7 @@
             --text-muted: #8c9cb0;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -33,11 +29,7 @@
             padding: 40px 16px;
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
+        header { text-align: center; margin-bottom: 45px; }
         h1 {
             font-size: 3rem;
             letter-spacing: 2px;
@@ -47,11 +39,7 @@
             margin-bottom: 8px;
             font-weight: 900;
         }
-
-        p.subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
+        p.subtitle { color: var(--text-muted); font-size: 1.1rem; }
 
         .container {
             max-width: 1300px;
@@ -95,9 +83,7 @@
             transition: transform 0.35s ease;
         }
 
-        .card:hover .img-wrapper img {
-            transform: scale(1.04);
-        }
+        .card:hover .img-wrapper img { transform: scale(1.04); }
 
         .card-content {
             padding: 16px;
@@ -117,35 +103,13 @@
             color: var(--accent-blue);
             font-weight: 700;
         }
+        .tag.alt { background: rgba(255, 51, 102, 0.12); color: var(--accent-red); }
+        .tag.purple { background: rgba(157, 78, 221, 0.15); color: var(--accent-purple); }
 
-        .tag.alt {
-            background: rgba(255, 51, 102, 0.12);
-            color: var(--accent-red);
-        }
+        .title { font-size: 1.15rem; font-weight: 700; color: #ffffff; }
+        .caption { font-size: 0.9rem; color: var(--text-muted); line-height: 1.35; }
 
-        .tag.purple {
-            background: rgba(157, 78, 221, 0.15);
-            color: var(--accent-purple);
-        }
-
-        .title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #ffffff;
-        }
-
-        .caption {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.35;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
+        footer { text-align: center; margin-top: 60px; color: var(--text-muted); font-size: 0.85rem; }
 
         #modal {
             display: none;
@@ -158,7 +122,6 @@
             align-items: center;
             backdrop-filter: blur(5px);
         }
-
         #modal img {
             max-width: 90vw;
             max-height: 90vh;
@@ -174,148 +137,8 @@
         <p class="subtitle">Полный архив кадров, персон и мемов сквада</p>
     </header>
 
-    <div class="container">
-        <!-- 1 -->
-        <div class="card" onclick="openModal('images/friend1.jpg')">
-            <div class="img-wrapper"><img src="images/friend1.jpg" alt="Незваный гость"></div>
-            <div class="card-content">
-                <span class="tag alt">Крипи</span>
-                <div class="title">Незваный гость</div>
-                <div class="caption">Смотрит прямо в душу тем, кто забыл настроить фаервол.</div>
-            </div>
-        </div>
-
-        <!-- 2 -->
-        <div class="card" onclick="openModal('images/friend2.jpg')">
-            <div class="img-wrapper"><img src="images/friend2.jpg" alt="Кулибяка"></div>
-            <div class="card-content">
-                <span class="tag purple">Мем</span>
-                <div class="title">Кулибяка</div>
-                <div class="caption">Глубоководный хранитель пакетов и сетевых протоколов.</div>
-            </div>
-        </div>
-
-        <!-- 3 -->
-        <div class="card" onclick="openModal('images/friend3.jpg')">
-            <div class="img-wrapper"><img src="images/friend3.jpg" alt="Дистанционка"></div>
-            <div class="card-content">
-                <span class="tag">Дистанционка</span>
-                <div class="title">Участник 20</div>
-                <div class="caption">Пара идет по расписанию, винда упорно просит ключ активации.</div>
-            </div>
-        </div>
-
-        <!-- 4 -->
-        <div class="card" onclick="openModal('images/friend4.jpg')">
-            <div class="img-wrapper"><img src="images/friend4.jpg" alt="Сканирование"></div>
-            <div class="card-content">
-                <span class="tag">0.5x Ultra</span>
-                <div class="title">Широкий фокус</div>
-                <div class="caption">Взгляд в упор, сканирующий обстановку на сервере.</div>
-            </div>
-        </div>
-
-        <!-- 5 -->
-        <div class="card" onclick="openModal('images/friend5.jpg')">
-            <div class="img-wrapper"><img src="images/friend5.jpg" alt="Дровник"></div>
-            <div class="card-content">
-                <span class="tag alt">Деревня</span>
-                <div class="title">Ночной драйв</div>
-                <div class="caption">Максимальный заряд веселья на фоне поленницы.</div>
-            </div>
-        </div>
-
-        <!-- 6 -->
-        <div class="card" onclick="openModal('images/friend6.jpg')">
-            <div class="img-wrapper"><img src="images/friend6.jpg" alt="Фэшн показ"></div>
-            <div class="card-content">
-                <span class="tag purple">Кутюр</span>
-                <div class="title">Фэшн показ</div>
-                <div class="caption">Высшая лига грации, стиля и модельной походки.</div>
-            </div>
-        </div>
-
-        <!-- 7 -->
-        <div class="card" onclick="openModal('images/friend7.jpg')">
-            <div class="img-wrapper"><img src="images/friend7.jpg" alt="Тактический сон"></div>
-            <div class="card-content">
-                <span class="tag alt">Аут</span>
-                <div class="title">Тактический сон</div>
-                <div class="caption">Слияние с удлинителем, плинтусом и шторой после тяжелого дня.</div>
-            </div>
-        </div>
-
-        <!-- 8 -->
-        <div class="card" onclick="openModal('images/friend8.jpg')">
-            <div class="img-wrapper"><img src="images/friend8.jpg" alt="Хитрый взгляд"></div>
-            <div class="card-content">
-                <span class="tag purple">Чилл</span>
-                <div class="title">Хитрый взгляд</div>
-                <div class="caption">Оценивает сборку сайта и готовность тиммейтов к каткам.</div>
-            </div>
-        </div>
-
-        <!-- 9 -->
-        <div class="card" onclick="openModal('images/friend9.jpg')">
-            <div class="img-wrapper"><img src="images/friend9.jpg" alt="На службе"></div>
-            <div class="card-content">
-                <span class="tag">Классика ТВ</span>
-                <div class="title">На службе</div>
-                <div class="caption">Строго по уставу, под личным контролем старшего состава.</div>
-            </div>
-        </div>
-
-        <!-- 10 -->
-        <div class="card" onclick="openModal('images/friend10.jpg')">
-            <div class="img-wrapper" style="height: 380px;">
-                <img src="images/friend10.jpg" alt="Главный спикер" style="object-position: center bottom;">
-            </div>
-            <div class="card-content">
-                <span class="tag alt">Позирование</span>
-                <div class="title">Главный спикер</div>
-                <div class="caption">Фирменный жест уверенности в любой непонятной ситуации.</div>
-            </div>
-        </div>
-
-        <!-- 11 -->
-        <div class="card" onclick="openModal('images/friend11.jpg')">
-            <div class="img-wrapper"><img src="images/friend11.jpg" alt="Фонари горят"></div>
-            <div class="card-content">
-                <span class="tag">Стрит</span>
-                <div class="title">Фонари горят</div>
-                <div class="caption">Вечерняя атмосфера, уличный свет и фирменный прищур.</div>
-            </div>
-        </div>
-
-        <!-- 12 -->
-        <div class="card" onclick="openModal('images/friend12.jpg')">
-            <div class="img-wrapper"><img src="images/friend12.jpg" alt="Широкая душа"></div>
-            <div class="card-content">
-                <span class="tag purple">Вайб</span>
-                <div class="title">Широкая душа</div>
-                <div class="caption">Искренняя улыбка, когда катка наконец-то выиграна.</div>
-            </div>
-        </div>
-
-        <!-- 13 -->
-        <div class="card" onclick="openModal('images/friend13.jpg')">
-            <div class="img-wrapper"><img src="images/friend13.jpg" alt="Ночной дозор"></div>
-            <div class="card-content">
-                <span class="tag">0.5x Mode</span>
-                <div class="title">Ночной дозор</div>
-                <div class="caption">Ракурс снизу для полного контроля вечернего сектора.</div>
-            </div>
-        </div>
-
-        <!-- 14 -->
-        <div class="card" onclick="openModal('images/friend14.jpg')">
-            <div class="img-wrapper"><img src="images/friend14.jpg" alt="Задумался"></div>
-            <div class="card-content">
-                <span class="tag">Фокус</span>
-                <div class="title">Задумался</div>
-                <div class="caption">Взвешивает шансы на победу и продумывает тактику.</div>
-            </div>
-        </div>
+    <div class="container" id="cards-container">
+        <!-- Карточки загружаются автоматически из data.json -->
     </div>
 
     <footer>
@@ -327,6 +150,35 @@
     </div>
 
     <script>
+        async function loadCards() {
+            try {
+                const res = await fetch('data.json?v=' + Date.now());
+                const cards = await res.json();
+                const container = document.getElementById('cards-container');
+                container.innerHTML = '';
+
+                cards.forEach(card => {
+                    const cardEl = document.createElement('div');
+                    cardEl.className = 'card';
+                    cardEl.onclick = () => openModal(card.file);
+
+                    cardEl.innerHTML = `
+                        <div class="img-wrapper">
+                            <img src="${card.file}" alt="${card.title}" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <span class="tag ${card.tag_class || ''}">${card.tag}</span>
+                            <div class="title">${card.title}</div>
+                            <div class="caption">${card.caption}</div>
+                        </div>
+                    `;
+                    container.appendChild(cardEl);
+                });
+            } catch (err) {
+                console.error("Ошибка загрузки карточек:", err);
+            }
+        }
+
         function openModal(src) {
             document.getElementById('modal-img').src = src;
             document.getElementById('modal').style.display = 'flex';
@@ -334,7 +186,8 @@
         function closeModal() {
             document.getElementById('modal').style.display = 'none';
         }
-    </script>
 
+        loadCards();
+    </script>
 </body>
 </html>
