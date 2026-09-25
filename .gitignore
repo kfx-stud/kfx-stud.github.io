@@ -1,0 +1,4 @@
+.env
+incoming/
+*.7z
+*.zip
